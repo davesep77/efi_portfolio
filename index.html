@@ -1,62 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=portfolio.html">
-    <title>Ephrem Gelaye Bekele - Portfolio</title>
+    <title>Efikemeabasi Ogbonna | Senior Pavement & Materials Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --text-light: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background: #1a1d29;
-            color: #e4e6eb;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .section {
+            padding: 6rem 5%;
+        }
+
+        .section-alt {
+            background: var(--bg-card);
+        }
+
+        .section-title {
             text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
 
-        .loader {
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 4rem;
+            font-size: 1.25rem;
+        }
+
+        .content-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
             font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
         }
 
-        .spinner {
-            border: 4px solid rgba(197, 160, 89, 0.1);
-            border-top: 4px solid #c5a059;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.8;
         }
 
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
+        .experience-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .experience-item {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent);
+            transition: transform 0.3s;
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+        }
+
+        .experience-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-description {
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .contact-card a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+
+        footer {
+            background: var(--bg-card);
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
             }
 
-            100% {
-                transform: rotate(360deg);
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
             }
         }
     </style>
 </head>
-
 <body>
-    <div class="loader">
-        <div class="spinner"></div>
-        <p>Loading Portfolio...</p>
-        <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 10px;">
-            If not redirected, <a href="portfolio.html" style="color: #c5a059;">click here</a>
-        </p>
-    </div>
-    <script>
-        // Redirect to portfolio
-        window.location.href = 'portfolio.html';
-    </script>
-</body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-hard-hat"></i> Efikemeabasi Ogbonna
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Efikemeabasi Ogbonna</h1>
+                <p class="hero-subtitle">Senior Pavement & Materials Engineer</p>
+                <p class="hero-description">
+                    Highly experienced civil engineering professional with over 15 years of expertise in road construction,
+                    pavement design, materials testing, and quality assurance. Specialized in Superpave asphalt design and
+                    infrastructure project management across Ethiopia and Tanzania.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                    <a href="#expertise" class="btn btn-secondary">
+                        <i class="fas fa-briefcase"></i> View Expertise
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt">
+        <div class="content-container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Countries</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Quality Standards</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="expertise">
+        <h2 class="section-title">Core Expertise</h2>
+        <p class="section-subtitle">Comprehensive engineering solutions for infrastructure projects</p>
+
+        <div class="content-container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h3>Pavement Design</h3>
+                    <p>Expert pavement design based on traffic analysis, subgrade investigation, and material specifications for both flexible and rigid pavement systems.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Superpave Mix Design</h3>
+                    <p>Advanced asphalt concrete mix design using Superpave and Marshall methods with proven track record in resolving complex challenges.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>Comprehensive QA/QC management including laboratory setup, calibration oversight, and compliance verification.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Construction Supervision</h3>
+                    <p>Full-cycle construction supervision from earthworks to final surfacing, expert in DBST and asphalt concrete.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Materials Testing</h3>
+                    <p>Comprehensive field and laboratory testing programs, DCP analysis, and in-situ density testing.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Project Management</h3>
+                    <p>Expert in tender preparation, cost estimation, and multi-disciplinary team coordination with MSc qualification.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section-alt" id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-subtitle">A proven track record across major infrastructure projects</p>
+
+        <div class="content-container">
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <h3 class="experience-title">Senior Pavement & Materials Engineer</h3>
+                    <p class="experience-company">SABA Engineering PLC | Tanzania</p>
+                    <p class="experience-date">2024 - Present</p>
+                    <p class="experience-description">
+                        Leading design review and quality control for the Ntendo-Muze-Kilyamatundu Road project (179 Km)
+                        for TANROADS. Specializing in concrete mix design, DBST supervision, and laboratory management.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <h3 class="experience-title">Senior Pavement & Materials Engineer</h3>
+                    <p class="experience-company">GRE German Rail Engineering | Ethiopia</p>
+                    <p class="experience-date">2023 - 2024</p>
+                    <p class="experience-description">
+                        Superpave asphalt concrete mix design specialist for the Africa Avenue-Bole Medhanealem Urban Road
+                        project in Addis Ababa. Prepared quality assurance manuals and supervised high-traffic infrastructure.
+                    </p>
+                </div>
+
+                <div class="experience-item">
+                    <h3 class="experience-title">Senior Resident & Pavement Engineer</h3>
+                    <p class="experience-company">Multiple Consultancies | Ethiopia</p>
+                    <p class="experience-date">2008 - 2023</p>
+                    <p class="experience-description">
+                        Over 15 years of progressive experience across 40+ road projects working with Ethiopian Roads Authority
+                        and Oromia Roads Authority. Projects ranging from 14 km to 310 km in length.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-subtitle">Available for consulting and full-time opportunities</p>
+
+        <div class="content-container">
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <a href="mailto:contact@example.com">contact@example.com</a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-phone"></i>
+                    <h4>Phone</h4>
+                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                </div>
+
+                <div class="contact-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h4>Location</h4>
+                    <p style="color: var(--text-muted);">East Africa Region</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Efikemeabasi Ogbonna | Senior Pavement & Materials Engineer</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem;">MSc in Project Planning & Management | BSc in Civil Engineering</p>
+    </footer>
+</body>
 </html>

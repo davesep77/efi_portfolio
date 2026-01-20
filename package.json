@@ -1,0 +1,12 @@
+{
+  "name": "efikemeabasi-ogbonna-portfolio",
+  "version": "1.0.0",
+  "description": "Professional portfolio website for Efikemeabasi Ogbonna - Senior Pavement & Materials Engineer",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'",
+    "dev": "echo 'Open index.html in your browser'"
+  },
+  "keywords": ["portfolio", "civil-engineering"],
+  "author": "Efikemeabasi Ogbonna",
+  "license": "MIT"
+}
